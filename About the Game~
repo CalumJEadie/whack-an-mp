@@ -1,0 +1,25 @@
+<h1> Rules </h1>
+<ul>
+	<li> You will have 1 minute to 'whack' as many politicians as possible </li>
+	<li> You get 1 point per politician </li>
+	<li> Politicians will appear from the holes, expand and contract and then dissapear unless you 'whack' them </li>
+	<li> The speed at which the politicians move is based on how often they have voted in Parliment </li>
+	<li> The size that they grow to will depend on how often they speak in Parliment</li>
+</ul>
+<p> Those politicians that vote regularly and speak in debates often will be the smallest and quickest to disappear,
+those politicians that don't vote or speak regularly... will take a lot of abuse</p>
+
+<h1> Score Board </h1>
+This is the list of things we'd like the score board to do... if we have time
+<ul>
+	<li> Show top 10 scores with name </li>
+	<li> Give an overall rank for your score </li>
+	<li> Show the top 3 'whacked' politicians </li>
+	<li> Show the bottom 3 'whacked' politicians </li>
+	<li> Show the players local politicians ranking if they put in their Post Code </li>
+</ul>
+
+<h1> Disclaimer </h1>
+<em> A low voting percentage may be due to abstaining from votes, being unable to participate dur to other ministerial duties
+or they could be the speaker</3m>
+
