@@ -575,7 +575,7 @@ hr {
   transition-duration: 0.15s;
   height: 1em;
   width: 1em;
-  background: #ff00aa;
+  background-color: #ff00aa;
   margin: 4em auto;
   cursor: pointer;
   padding: .2em;
@@ -629,6 +629,26 @@ hr {
 /* line 65, ../sass/_grid.scss */
 .pop .mp-img {
   opacity: 0;
+}
+
+/* line 70, ../sass/_grid.scss */
+.party-lab {
+  background-color: red;
+}
+
+/* line 74, ../sass/_grid.scss */
+.party-con {
+  background-color: blue;
+}
+
+/* line 78, ../sass/_grid.scss */
+.party-lib {
+  background-color: yellow;
+}
+
+/* line 82, ../sass/_grid.scss */
+.party-other {
+  background-color: grey;
 }
 
 /* line 30, ../sass/styles.scss */
