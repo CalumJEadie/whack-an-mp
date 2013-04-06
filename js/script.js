@@ -42,38 +42,41 @@ function get_party_css_style(party) {
 }
 
 function get_mps(success) {
-    $.getJSON(
-        theyworkforyou_api_root + "getMPs",
-        {
+    $.ajax({
+        url: theyworkforyou_api_root + "getMPs",
+        data: {
             key: theyworkforyou_key,
             output: "js"
         },
-        success
-    )
+        success: success,
+        dataType: 'jsonp'
+    })
 }
 
 function get_mp(person_id, success) {
-    $.getJSON(
-        theyworkforyou_api_root + "getMP",
-        {
+    $.ajax({
+        url: theyworkforyou_api_root + "getMP",
+        data: {
             key: theyworkforyou_key,
             output: "js",
             id: person_id
         },
-        success
-    )
+        success: success,
+        dataType: 'jsonp'
+    })
 }
 
 function get_mp_info(person_id, success) {
-    $.getJSON(
-        theyworkforyou_api_root + "getMPInfo",
-        {
+    $.ajax({
+        url: theyworkforyou_api_root + "getMPInfo",
+        data: {
             key: theyworkforyou_key,
             output: "js",
             id: person_id
         },
-        success
-    )
+        success: success,
+        dataType: 'jsonp'
+    })
 }
 
 // function get_n_mps(success) {
