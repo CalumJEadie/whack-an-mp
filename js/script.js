@@ -5,6 +5,7 @@
 theyworkforyou_key = "EJGTp6C6GFRyDJRPJJBmaJRD"
 theyworkforyou_api_root = "http://www.theyworkforyou.com/api/"
 theyworkforyou_image_root = "http://www.theyworkforyou.com"
+mp_popup_interval = 2000
 
 /*
  * State.
@@ -17,6 +18,10 @@ output = $("#output")
 /*
  * Behaviour.
  */
+
+function random_int(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function get_party_css_style(party) {
     switch (party) {
@@ -104,7 +109,7 @@ function init_mp_containers() {
             // console.log(mp_container_el)
 
             mp_image_el = $($('.mp-img')[mp_id])
-            console.log(mp_image_el)
+            // console.log(mp_image_el)
             mp_image_el.css("background-image", "url(" + mp_image_url + ")")
 
             mp_el = $($('.mp')[mp_id])
@@ -151,24 +156,40 @@ function init_mp_containers() {
     //     }
     // })
 
+
+
+function show_random_mp() {
+    show_mp(random_int(0,11))
+}
+
+function show_mp(mp_id) {
+    mp_el = $($(".mp").eq(mp_id))
+    mp_el.addClass("pop").delay(3000).removeClass("pop").addClass("show")
+}
+
+function hide_mp(mp_id) {
+    mp_el = $($(".mp").eq(mp_id))
+    mp_el.removeClass("show").addClass("pop").delay(3000).removeClass("show")
+}
+
 function start_game() {
     /*
      * Starts a new game.
      */
-    console.log("New game started.")
-
     $('.mp').each(function(index, element) {
         mp_el = $(element)
 
         mp_el.data("whack_count", 0)
-        console.log(mp_el.data("whack_count"))
+        // console.log(mp_el.data("whack_count"))
 
-        // mp_el.removeClass("show")
+        mp_el.removeClass("show")
         mp_el.removeClass("pop")
 
-        mp_el.addClass("show")
+        // mp_el.addClass("show")
         // mp_el.addClass("pop")
     })
+
+    whackanmp.show_random_mp_id = setInterval(show_random_mp, mp_popup_interval)
 }
 
 $(document).ready(function(){
