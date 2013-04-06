@@ -5,7 +5,8 @@
 theyworkforyou_key = "EJGTp6C6GFRyDJRPJJBmaJRD"
 theyworkforyou_api_root = "http://www.theyworkforyou.com/api/"
 theyworkforyou_image_root = "http://www.theyworkforyou.com"
-mp_popup_interval = 2000
+tick_interval = 500
+time_shown_no_attendance = 2000
 
 /*
  * State.
@@ -56,17 +57,17 @@ function get_mp(person_id, success) {
     )
 }
 
-// function get_mp_info(person_id, success) {
-//     $.getJSON(
-//         theyworkforyou_api_root + "getMPInfo",
-//         {
-//             key: theyworkforyou_key,
-//             output: "js",
-//             id: person_id
-//         },
-//         success
-//     )
-// }
+function get_mp_info(person_id, success) {
+    $.getJSON(
+        theyworkforyou_api_root + "getMPInfo",
+        {
+            key: theyworkforyou_key,
+            output: "js",
+            id: person_id
+        },
+        success
+    )
+}
 
 // function get_n_mps(success) {
 //     $.getJSON(
@@ -91,6 +92,35 @@ function init_mp_containers() {
     */
 
     // Attach data to mp containers from TheyWorkForYou API
+
+    mp_info_callback = function(mp_id) {
+        return function(data, textStatus, jqXHR) {
+            mp = data
+
+            // Average out attendances
+            attendances = []
+            for (var member_id in mp.by_member_id) {
+                attendance = mp.by_member_id[member_id].public_whip_division_attendance
+                attendance = parseFloat(attendance.substring(0, attendance.length-1))
+                attendance /= 100
+                attendances.push(attendance)
+            }
+            // sum = 0
+            // n = attendances.length
+
+            // console.log(attendances)
+            // console.log(n)
+            // for (var i=0; i++; i<n) {
+            //     console.log(attendances)
+            //     sum = sum + attendances[i]
+            // }
+            // console.log(sum)
+            // attendance = sum / n
+            attendance = attendances[0]
+
+            mp_el = $($('.mp')[mp_id]).data("attendance", attendance)
+        }
+    }
 
     mp_callback = function(mp_id) {
         return function(data, textStatus, jqXHR) {
@@ -125,6 +155,7 @@ function init_mp_containers() {
             // console.log(mp)
             mp_person_id = mp.person_id
             get_mp(mp_person_id, mp_callback(mp_id))
+            get_mp_info(mp_person_id, mp_info_callback(mp_id))
         }
     }
 
@@ -168,7 +199,9 @@ function init_mp_containers() {
     //     }
     // })
 
-
+function tick() {
+    show_random_mp()
+}
 
 function show_random_mp() {
     show_mp(random_int(0,11))
@@ -176,7 +209,18 @@ function show_random_mp() {
 
 function show_mp(mp_id) {
     mp_el = $($(".mp").eq(mp_id))
-    mp_el.addClass("pop").delay(3000).removeClass("pop").addClass("show")
+    mp_attendance = mp_el.data("attendance")
+    mp_el
+        .addClass("pop")
+        .delay(3000)
+        .removeClass("pop").addClass("show")
+
+    setTimeout(
+        function() {
+            hide_mp(mp_id)
+        },
+        time_shown_no_attendance * (1-mp_attendance)
+    )
 }
 
 function hide_mp(mp_id) {
@@ -201,7 +245,7 @@ function start_game() {
         // mp_el.addClass("pop")
     })
 
-    whackanmp.show_random_mp_id = setInterval(show_random_mp, mp_popup_interval)
+    whackanmp.tick_id = setInterval(show_random_mp, tick_interval)
 }
 
 $(document).ready(function(){
