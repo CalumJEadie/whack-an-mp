@@ -13,11 +13,11 @@ $link-hover-color: darken($link-color, 10);
 //===============================================================================
 @import "compass/css3";
 @import "_normalize.scss";
-@import "_layout.scss";
 @import "_typography.scss";
 @import "_buttons.scss";
 @import "_header.scss";
 @import "_grid.scss";
+@import "_about.scss";
 
 
 //===============================================================================
@@ -29,7 +29,7 @@ $link-hover-color: darken($link-color, 10);
 //===============================================================================
 .text-list{
   list-style: disc;
-  padding-left: 1em;
+  padding-left: 1.5em;
 }
 
 .clear-fix:after{
