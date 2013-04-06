@@ -1,30 +1,3 @@
-// Start button javascript
-$(document).ready(function() {
-	$('.start-btn').click(function() {
-		$('.start').remove();
-
-        console.log("start click fired");
-	});
-});
-
-// timer js
-function countdown() {
-    var m = $('.min');
-    var s = $('.sec');
-    if(m.length == 0 && parseInt(s.html()) <= 0) {
-        window.location.href = "scoreboard.html";    
-    }
-    if(parseInt(s.html()) <= 0) {
-        m.html(parseInt(m.html()-1));   
-        s.html(60);
-    }
-    if(parseInt(m.html()) <= 0) {
-        $('.timer').html('<span class="sec">59</span> seconds.'); 
-    }
-    s.html(parseInt(s.html()-1));
-}
-setInterval('countdown()',1000);
-
 /*
  * Configuration.
  */
@@ -286,6 +259,23 @@ function whack_mp(mp_id) {
     }
 }
 
+
+function countdown() {
+    var m = $('.min');
+    var s = $('.sec');
+    if(m.length == 0 && parseInt(s.html()) <= 0) {
+        window.location.href = "scoreboard.html";    
+    }
+    if(parseInt(s.html()) <= 0) {
+        m.html(parseInt(m.html()-1));   
+        s.html(60);
+    }
+    if(parseInt(m.html()) <= 0) {
+        $('.timer').html('<span class="sec">59</span> seconds.'); 
+    }
+    s.html(parseInt(s.html()-1));
+}
+
 function start_game() {
     /*
      * Starts a new game.
@@ -295,15 +285,14 @@ function start_game() {
 
         mp_el.data("whack_count", 0)
         mp_el.data("shown", false)
-
-        mp_el.removeClass("show")
-        mp_el.removeClass("pop")
     })
 
-    setTimeout(function() {
-        whackanmp.tick_id = setInterval(show_random_mp, tick_interval),
-        5000
-    })
+    $('.start').remove();
+
+    // setTimeout(function() {
+        whackanmp.tick_id = setInterval(show_random_mp, tick_interval)
+        setInterval(countdown, 1000)
+    // },1000)
 }
 
 $(document).ready(function(){
@@ -311,36 +300,5 @@ $(document).ready(function(){
 
     init_mp_containers()
 
-    start_game()
+    $('.start-btn').click(start_game);
 })
-
-    // Populate mp containers with mp information.
-    // 
-    // Information for mp:
-    // - name
-    // - headshot
-    // - party
-    // - how many times they've been whacked.
-    
-    // get_mps(function(data, textStatus, jqXHR) {
-    //     mps = data
-    //     for (var i=0; i<12; i++) {
-    //         console.log(i)
-    //         mp = mps[i]
-    //         mp_person_id = mp.person_id
-
-    //         get_mp(mp_person_id, function(data, textStatus, jqXHR) {
-    //             mp = data[0]
-
-    //             console.log(mp.full_name)
-    //             console.log(mp.image)
-    //             console.log(mp.party)
-
-    //             console.log(i)
-
-    //             mp_container = whackanmp.mp_containers.get(i)
-
-    //             console.log(mp_container)
-    //         })
-    //     }
-    // })
