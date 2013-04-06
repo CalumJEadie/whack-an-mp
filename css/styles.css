@@ -395,7 +395,7 @@ table {
 /* line 4, ../sass/_typography.scss */
 body {
   font-size: .9em;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: sans-serif;
   line-height: 1.4;
 }
 
@@ -445,19 +445,19 @@ ul {
 
 /* line 48, ../sass/_typography.scss */
 a {
-  color: #0055ff;
+  color: #1a66ff;
   font-weight: bolder;
 }
 /* line 52, ../sass/_typography.scss */
 a:hover {
-  color: #0044cc;
+  color: #004ce6;
 }
 
 /* line 57, ../sass/_typography.scss */
 blockquote {
   margin: 0;
   padding: 0 2em;
-  border-left: 0.2em solid #4d4d4d;
+  border-left: 0.2em solid #595959;
   font-style: italic;
 }
 /* line 63, ../sass/_typography.scss */
@@ -490,7 +490,7 @@ pre {
   -o-border-radius: 0.2em;
   border-radius: 0.2em;
   padding: .85em 1.05em;
-  background-color: gray;
+  background-color: #8c8c8c;
   color: white;
 }
 
@@ -498,7 +498,7 @@ pre {
 hr {
   margin: 2em 0;
   border: 0;
-  border-top: 1px dashed #4d4d4d;
+  border-top: 1px dashed #595959;
 }
 
 /* line 4, ../sass/_buttons.scss */
@@ -511,7 +511,7 @@ hr {
   display: inline-block;
   padding: .4em .6em;
   border: 0;
-  background-color: #4d4d4d;
+  background-color: #595959;
   color: white;
   text-decoration: none;
   font-weight: normal;
@@ -519,7 +519,7 @@ hr {
 }
 /* line 16, ../sass/_buttons.scss */
 .btn:hover {
-  background-color: #999999;
+  background-color: #a6a6a6;
   color: white;
 }
 
@@ -689,5 +689,5 @@ hr {
 /* line 49, ../sass/styles.scss */
 body {
   background-color: white;
-  color: #4d4d4d;
+  color: #595959;
 }
