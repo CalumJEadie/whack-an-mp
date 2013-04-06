@@ -681,13 +681,22 @@ em {
 /* line 4, ../sass/_scoreboard.scss */
 .scoreboard-wrap {
   font-size: 1.1em;
-  padding: 6em 0 10em;
+  padding: 7em 0 10em;
   margin: 0 auto;
   width: 90%;
   max-width: 56em;
 }
+/* line 11, ../sass/_scoreboard.scss */
+.scoreboard-wrap h2 {
+  font-size: 2.2em;
+  color: #333333;
+}
+/* line 16, ../sass/_scoreboard.scss */
+.scoreboard-wrap h2 span {
+  float: right;
+}
 
-/* line 12, ../sass/_scoreboard.scss */
+/* line 21, ../sass/_scoreboard.scss */
 .scores {
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
@@ -695,53 +704,54 @@ em {
   -o-border-radius: 0.2em;
   border-radius: 0.2em;
   float: left;
-  width: 40%;
+  width: 45%;
   border: 1px solid #cccccc;
 }
-/* line 19, ../sass/_scoreboard.scss */
-.scores:first-child {
+
+/* line 29, ../sass/_scoreboard.scss */
+.player-scores {
   margin-right: 10%;
 }
 
-/* line 24, ../sass/_scoreboard.scss */
+/* line 33, ../sass/_scoreboard.scss */
 .player-scores table {
   font-size: 1.3em;
   width: 100%;
 }
-/* line 28, ../sass/_scoreboard.scss */
+/* line 37, ../sass/_scoreboard.scss */
 .player-scores table th {
   text-align: left;
 }
-/* line 33, ../sass/_scoreboard.scss */
+/* line 42, ../sass/_scoreboard.scss */
 .player-scores table td,
 .player-scores table th {
   width: 70%;
   padding: .2em .5em;
 }
-/* line 39, ../sass/_scoreboard.scss */
+/* line 48, ../sass/_scoreboard.scss */
 .player-scores table td:nth-child(2n),
 .player-scores table th:nth-child(2n) {
   width: 30%;
   text-align: right;
 }
-/* line 44, ../sass/_scoreboard.scss */
+/* line 53, ../sass/_scoreboard.scss */
 .player-scores table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* line 50, ../sass/_scoreboard.scss */
+/* line 59, ../sass/_scoreboard.scss */
 .mp-scores .mp {
   margin: 1em;
   position: relative;
 }
-/* line 55, ../sass/_scoreboard.scss */
+/* line 64, ../sass/_scoreboard.scss */
 .mp-scores .p-code {
   color: #999999;
   padding: .5em;
   display: block;
   margin-top: 2em;
 }
-/* line 62, ../sass/_scoreboard.scss */
+/* line 71, ../sass/_scoreboard.scss */
 .mp-scores input {
   -webkit-border-radius: 0.3em;
   -moz-border-radius: 0.3em;
@@ -755,15 +765,33 @@ em {
   border: 0;
   background-color: #e6e6e6;
 }
-
-/* line 74, ../sass/_scoreboard.scss */
-.ed .mp-img {
-  background-image: url(../img/ed.jpg);
+/* line 83, ../sass/_scoreboard.scss */
+.mp-scores .mp-name,
+.mp-scores .mp-score {
+  position: absolute;
+  font-size: 1.3em;
+  top: 1.6em;
+  left: 7.5em;
+  width: 10em;
+}
+/* line 91, ../sass/_scoreboard.scss */
+.mp-scores .mp-score {
+  top: 2.8em;
 }
 
-/* line 78, ../sass/_scoreboard.scss */
+/* line 96, ../sass/_scoreboard.scss */
+.dave .mp-img {
+  background-image: url(../img/dave.jpg) !important;
+}
+
+/* line 100, ../sass/_scoreboard.scss */
+.ed .mp-img {
+  background-image: url(../img/ed.jpg) !important;
+}
+
+/* line 104, ../sass/_scoreboard.scss */
 .nick .mp-img {
-  background-image: url(../img/nick.jpg);
+  background-image: url(../img/nick.jpg) !important;
 }
 
 /* line 30, ../sass/styles.scss */

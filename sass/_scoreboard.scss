@@ -3,22 +3,31 @@
 //===============================================================================
 .scoreboard-wrap{
   font-size: 1.1em;
-  padding: 6em 0 10em;
+  padding: 7em 0 10em;
   margin: 0 auto;
   width: 90%;
   max-width: 56em;
+
+  h2{
+    font-size: 2.2em;
+    color: hsl(0, 0, 20);
+  }
+
+  h2 span{
+    float: right;
+  }
 }
 
 .scores{
   @include border-radius(.2em);
 
   float: left;
-  width: 40%;
+  width: 45%;
   border: 1px solid hsl(0, 0, 80);
+}
 
-  &:first-child{
-    margin-right: 10%;
-  }
+.player-scores{
+  margin-right: 10%;
 }
 
 .player-scores table{
@@ -69,12 +78,29 @@
     border: 0;
     background-color: hsl(0, 0, 90);
   }
+
+  .mp-name,
+  .mp-score{
+    position: absolute;
+    font-size: 1.3em;
+    top: 1.6em;
+    left: 7.5em;
+    width: 10em;
+  }
+
+  .mp-score{
+    top: 2.8em;
+  }
+}
+
+.dave .mp-img{
+  background-image: url(../img/dave.jpg) !important;
 }
 
 .ed .mp-img{
-  background-image: url(../img/ed.jpg);
+  background-image: url(../img/ed.jpg) !important;
 }
 
 .nick .mp-img{
-  background-image: url(../img/nick.jpg);
+  background-image: url(../img/nick.jpg) !important;
 }
