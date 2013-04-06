@@ -1,3 +1,8 @@
 # Whack an MP
 
-Hack using the TheyWorkForYou API for Rewired State National Hack the Government 2013.
+### Part of the National Hack the Goverment hackathon 2013
+
+Built by
+Calum Eadie calumeadie.com
+Andy Brown @ubc_founder
+Mark Durrant @m6_d6

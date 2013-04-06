@@ -1,0 +1,28 @@
+//===============================================================================
+// §HEADER
+//===============================================================================
+.site-header{
+  background: hsl(0, 0, 80);
+  position: fixed;
+  height: 5em;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.branding{
+  float: left;
+  width: 30%;
+
+  h1{
+    font-weight: normal;
+    margin: .6em .5em;
+  }
+}
+
+.instructions{
+  float: left;
+  width: 70%;
+  padding: .5em;
+  text-align: right; 
+}
