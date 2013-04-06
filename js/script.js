@@ -12,7 +12,7 @@ function countdown() {
     var m = $('.min');
     var s = $('.sec');
     if(m.length == 0 && parseInt(s.html()) <= 0) {
-        $('.timer').html('Timer Complete.');    
+        window.location.href = "scoreboard.html";    
     }
     if(parseInt(s.html()) <= 0) {
         m.html(parseInt(m.html()-1));   
