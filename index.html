@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width">
 
   <!-- livereload script DO NOT LEAVE IN PRODUCTION -->
-  <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
   <link rel="stylesheet" href="css/styles.css">
 
@@ -19,10 +19,11 @@
   <header class="site-header clear-fix">
     <div class="branding">
       <h1>Whack an MP</h1>
+      <img src="img/hammers.svg">
     </div> <!-- end .branding -->
 
     <div class="instructions">
-      <p>click or tap on MP's as they appear</p>
+      <p>You will have 1 minute to 'whack' as many politicians as possible. Just click the faces as they appear. We've handicapped those politicians who don't regularly vote or speak in debates, they will be slower and easier to hit.</p>
     </div> <!-- end .instructions -->
   </header> <!-- end .site-header -->
 
@@ -30,25 +31,25 @@
 
     <ul class="mp-grid clear-fix">
       <li class="mp-containter">
-        <div class="mp show">
+        <div class="mp show party-lab">
           <div class="mp-img"></div>
         </div>
       </li>
 
       <li class="mp-containter">
-        <div class="mp pop">
+        <div class="mp show party-con">
           <div class="mp-img"></div>
         </div>
       </li>
 
       <li class="mp-containter">
-        <div class="mp">
+        <div class="mp show party-lib">
           <div class="mp-img"></div>
         </div>
       </li>
 
       <li class="mp-containter">
-        <div class="mp">
+        <div class="mp show party-other">
           <div class="mp-img"></div>
         </div>
       </li>

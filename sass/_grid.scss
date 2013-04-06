@@ -25,7 +25,7 @@
 
   height: 1em;
   width: 1em;
-  background: hsl(320, 100, 50);
+  background-color: hsl(320, 100, 50);
   margin: 4em auto;
   cursor: pointer;
   padding: .2em;
@@ -66,3 +66,20 @@
     opacity: 0;
   }
 }
+
+.party-lab{
+  background-color: #DC241f;
+}
+
+.party-con{
+  background-color: #0087DC; 
+}
+
+.party-lib{
+  background-color: #FDBB30;  
+}
+
+.party-other{
+  background-color: hsl(0, 0, 60);  
+}
+

@@ -12,17 +12,23 @@
 
 .branding{
   float: left;
-  width: 30%;
+  width: 35%;
 
   h1{
     font-weight: normal;
-    margin: .6em .5em;
+    margin: .9em .5em 0;
+    float: left;
+  }
+
+  img{
+    float: left;
+    margin: .4em 0 0 -.5em;
   }
 }
 
 .instructions{
   float: left;
-  width: 70%;
+  width: 65%;
   padding: .5em;
   text-align: right; 
 }
