@@ -1,8 +1,9 @@
 // Start button javascript
-
 $(document).ready(function() {
-	$('start-btn').click(function() {
-		$('.start').remove()
+	$('.start-btn').click(function() {
+		$('.start').remove();
+
+        console.log("start click fired");
 	});
 });
 
