@@ -529,26 +529,27 @@ em {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 999;
 }
 
-/* line 13, ../sass/_header.scss */
+/* line 14, ../sass/_header.scss */
 .branding {
   float: left;
   width: 35%;
 }
-/* line 17, ../sass/_header.scss */
+/* line 18, ../sass/_header.scss */
 .branding h1 {
   font-weight: normal;
   margin: .9em .5em 0;
   float: left;
 }
-/* line 23, ../sass/_header.scss */
+/* line 24, ../sass/_header.scss */
 .branding img {
   float: left;
   margin: 0.4em 0 0 -0.5em;
 }
 
-/* line 29, ../sass/_header.scss */
+/* line 30, ../sass/_header.scss */
 .instructions {
   float: left;
   width: 65%;
@@ -680,7 +681,7 @@ em {
 /* line 4, ../sass/_scoreboard.scss */
 .scoreboard-wrap {
   font-size: 1.1em;
-  padding: 5em 0 10em;
+  padding: 6em 0 10em;
   margin: 0 auto;
   width: 90%;
   max-width: 56em;
@@ -728,12 +729,13 @@ em {
   background-color: #f2f2f2;
 }
 
-/* line 51, ../sass/_scoreboard.scss */
+/* line 50, ../sass/_scoreboard.scss */
 .mp-scores .mp {
   margin: 1em;
+  position: relative;
 }
 /* line 55, ../sass/_scoreboard.scss */
-.mp-scores span {
+.mp-scores .p-code {
   color: #999999;
   padding: .5em;
   display: block;
