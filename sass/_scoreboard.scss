@@ -1,0 +1,80 @@
+//===============================================================================
+// §SCOREBOARD
+//===============================================================================
+.scoreboard-wrap{
+  font-size: 1.1em;
+  padding: 5em 0 10em;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 56em;
+}
+
+.scores{
+  @include border-radius(.2em);
+
+  float: left;
+  width: 40%;
+  border: 1px solid hsl(0, 0, 80);
+
+  &:first-child{
+    margin-right: 10%;
+  }
+}
+
+.player-scores table{
+  font-size: 1.3em;
+  width: 100%;
+
+  th{
+    text-align: left;
+  }
+
+  td,
+  th{
+    width: 70%;
+    padding: .2em .5em;
+  }
+
+  td:nth-child(2n),
+  th:nth-child(2n){
+    width: 30%;
+    text-align: right;
+  }
+
+  tr:nth-child(even){
+    background-color: hsl(0, 0, 95);
+  }
+}
+
+.mp-scores{
+
+  .mp{
+    margin: 1em;
+  }
+
+  span{
+    color: hsl(0, 0, 60);
+    padding: .5em;
+    display: block;
+    margin-top: 2em;
+  }
+
+  input{
+    @include border-radius(.3em);
+
+    margin: .5em 2%;
+    width: 96%;
+    appearance: none;
+    height: 2.6em;
+    border: 0;
+    background-color: hsl(0, 0, 90);
+  }
+}
+
+.ed .mp-img{
+  background-image: url(../img/ed.jpg);
+}
+
+.nick .mp-img{
+  background-image: url(../img/nick.jpg);
+}
