@@ -48,7 +48,8 @@ function get_mps(success) {
             key: theyworkforyou_key,
             output: "js"
         },
-        success
+        success,
+        dataType: 'jsonp'
     )
 }
 
@@ -60,7 +61,8 @@ function get_mp(person_id, success) {
             output: "js",
             id: person_id
         },
-        success
+        success,
+        dataType: 'jsonp'
     )
 }
 
@@ -72,7 +74,8 @@ function get_mp_info(person_id, success) {
             output: "js",
             id: person_id
         },
-        success
+        success,
+        dataType: 'jsonp'
     )
 }
 
