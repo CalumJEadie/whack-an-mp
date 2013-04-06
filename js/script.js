@@ -238,8 +238,6 @@ function show_mp(mp_id) {
 function hide_mp(mp_id) {
     mp_el = $($(".mp").eq(mp_id))
 
-    console.log(mp_el.data("shown"))
-    console.log(mp_el.data("shown") == true)
     if (mp_el.data("shown") == true) {
         mp_el.data("shown", false)
         mp_el.removeClass("show")
@@ -250,6 +248,8 @@ function whack_mp(mp_id) {
     mp_el = $($(".mp").eq(mp_id))
 
     if (mp_el.data("shown") == true) {
+        increment_score()
+
         mp_el.data("shown", false)
         mp_el.removeClass("show")
         mp_el.addClass("pop")//.delay(2000).removeClass("pop")
@@ -280,6 +280,9 @@ function start_game() {
     /*
      * Starts a new game.
      */
+    
+    set_score(0)
+
     $('.mp').each(function(index, element) {
         mp_el = $(element)
 
@@ -293,6 +296,16 @@ function start_game() {
         whackanmp.tick_id = setInterval(show_random_mp, tick_interval)
         setInterval(countdown, 1000)
     // },1000)
+}
+
+function set_score(score) {
+     whackanmp.score = 0
+    $($('.score-text')).html(whackanmp.score)
+}
+
+function increment_score() {
+    whackanmp.score += 1
+    $($('.score-text')).html(whackanmp.score)
 }
 
 $(document).ready(function(){

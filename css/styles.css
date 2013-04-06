@@ -856,10 +856,24 @@ body {
   color: #595959;
 }
 
-/* line 60, ../sass/styles.scss */
-.timer {
+/* line 61, ../sass/styles.scss */
+.timer,
+.game-score {
   text-align: center;
   font-size: 4em;
   color: #3377ff;
   font-weight: bold;
+  float: left;
+  margin-right: 1em;
+}
+
+/* line 70, ../sass/styles.scss */
+.game-score {
+  color: #ff33bb;
+}
+
+/* line 74, ../sass/styles.scss */
+.rar {
+  width: 46em;
+  margin: 0 auto;
 }
