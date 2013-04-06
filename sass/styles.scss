@@ -57,9 +57,21 @@ body{
 //===============================================================================
 // §DEV-STYLES
 //===============================================================================
-.timer{
+.timer,
+.game-score{
   text-align: center;
   font-size: 4em;
   color: hsl(220, 100, 60);
   font-weight: bold;
+  float: left;
+  margin-right: 1em;
+}
+
+.game-score{
+  color: hsl(320, 100, 60);
+}
+
+.rar{
+  width: 46em;
+  margin: 0 auto;
 }
