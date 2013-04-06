@@ -24,6 +24,13 @@ function random_int(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Thanks StackOverflow!
+// http://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array-in-javascript
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
+
 function get_party_css_style(party) {
     switch (party) {
         case "Labour": return "party-lab"
@@ -149,6 +156,8 @@ function init_mp_containers() {
    
     mps_callback = function(data, textStatus, jqXHR) {
         mps = data
+        // Randomise the list of mps
+        mps = shuffle(mps)
         // console.log(mps)
         for (var mp_id=0; mp_id<12; mp_id++) {
             mp = mps[mp_id]
