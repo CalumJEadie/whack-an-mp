@@ -18,7 +18,8 @@
   height: 10em;
 }
 
-.mp{
+.mp,
+.mp-s{
   @include border-radius(10em);
   @include transition-property(all);
   @include transition-duration(.15s);
