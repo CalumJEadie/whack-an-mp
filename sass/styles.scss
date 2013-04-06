@@ -19,6 +19,7 @@ $link-hover-color: darken($link-color, 10);
 @import "_grid.scss";
 @import "_about.scss";
 @import "_scoreboard.scss";
+@import "_start.scss";
 
 //===============================================================================
 // §MIXINS
@@ -56,3 +57,9 @@ body{
 //===============================================================================
 // §DEV-STYLES
 //===============================================================================
+.timer{
+  text-align: center;
+  font-size: 4em;
+  color: hsl(220, 100, 60);
+  font-weight: bold;
+}

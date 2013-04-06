@@ -529,26 +529,27 @@ em {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 999;
 }
 
-/* line 13, ../sass/_header.scss */
+/* line 14, ../sass/_header.scss */
 .branding {
   float: left;
   width: 35%;
 }
-/* line 17, ../sass/_header.scss */
+/* line 18, ../sass/_header.scss */
 .branding h1 {
   font-weight: normal;
   margin: .9em .5em 0;
   float: left;
 }
-/* line 23, ../sass/_header.scss */
+/* line 24, ../sass/_header.scss */
 .branding img {
   float: left;
   margin: 0.4em 0 0 -0.5em;
 }
 
-/* line 29, ../sass/_header.scss */
+/* line 30, ../sass/_header.scss */
 .instructions {
   float: left;
   width: 65%;
@@ -613,53 +614,54 @@ em {
   width: 100%;
   height: 100%;
   opacity: 0;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
 }
 
-/* line 46, ../sass/_grid.scss */
+/* line 47, ../sass/_grid.scss */
 .show {
   height: 8em;
   width: 8em;
   margin: 1em auto;
 }
-/* line 51, ../sass/_grid.scss */
+/* line 52, ../sass/_grid.scss */
 .show .mp-img {
   opacity: 1;
 }
 
-/* line 56, ../sass/_grid.scss */
+/* line 57, ../sass/_grid.scss */
 .pop {
   -webkit-transition-duration: 0;
   -moz-transition-duration: 0;
   -o-transition-duration: 0;
   transition-duration: 0;
   background-image: url(../img/pop.svg);
-  background-color: white;
+  background-color: white !important;
   height: 60px;
   width: 60px;
   margin: 2.5em auto;
 }
-/* line 65, ../sass/_grid.scss */
+/* line 66, ../sass/_grid.scss */
 .pop .mp-img {
   opacity: 0;
 }
 
-/* line 70, ../sass/_grid.scss */
+/* line 71, ../sass/_grid.scss */
 .party-lab {
   background-color: #DC241f;
 }
 
-/* line 74, ../sass/_grid.scss */
+/* line 75, ../sass/_grid.scss */
 .party-con {
   background-color: #0087DC;
 }
 
-/* line 78, ../sass/_grid.scss */
+/* line 79, ../sass/_grid.scss */
 .party-lib {
   background-color: #FDBB30;
 }
 
-/* line 82, ../sass/_grid.scss */
+/* line 83, ../sass/_grid.scss */
 .party-other {
   background-color: #999999;
 }
@@ -680,13 +682,22 @@ em {
 /* line 4, ../sass/_scoreboard.scss */
 .scoreboard-wrap {
   font-size: 1.1em;
-  padding: 5em 0 10em;
+  padding: 7em 0 10em;
   margin: 0 auto;
   width: 90%;
   max-width: 56em;
 }
+/* line 11, ../sass/_scoreboard.scss */
+.scoreboard-wrap h2 {
+  font-size: 2.2em;
+  color: #333333;
+}
+/* line 16, ../sass/_scoreboard.scss */
+.scoreboard-wrap h2 span {
+  float: right;
+}
 
-/* line 12, ../sass/_scoreboard.scss */
+/* line 21, ../sass/_scoreboard.scss */
 .scores {
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
@@ -694,52 +705,54 @@ em {
   -o-border-radius: 0.2em;
   border-radius: 0.2em;
   float: left;
-  width: 40%;
+  width: 45%;
   border: 1px solid #cccccc;
 }
-/* line 19, ../sass/_scoreboard.scss */
-.scores:first-child {
+
+/* line 29, ../sass/_scoreboard.scss */
+.player-scores {
   margin-right: 10%;
 }
 
-/* line 24, ../sass/_scoreboard.scss */
+/* line 33, ../sass/_scoreboard.scss */
 .player-scores table {
   font-size: 1.3em;
   width: 100%;
 }
-/* line 28, ../sass/_scoreboard.scss */
+/* line 37, ../sass/_scoreboard.scss */
 .player-scores table th {
   text-align: left;
 }
-/* line 33, ../sass/_scoreboard.scss */
+/* line 42, ../sass/_scoreboard.scss */
 .player-scores table td,
 .player-scores table th {
   width: 70%;
   padding: .2em .5em;
 }
-/* line 39, ../sass/_scoreboard.scss */
+/* line 48, ../sass/_scoreboard.scss */
 .player-scores table td:nth-child(2n),
 .player-scores table th:nth-child(2n) {
   width: 30%;
   text-align: right;
 }
-/* line 44, ../sass/_scoreboard.scss */
+/* line 53, ../sass/_scoreboard.scss */
 .player-scores table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* line 51, ../sass/_scoreboard.scss */
+/* line 59, ../sass/_scoreboard.scss */
 .mp-scores .mp {
   margin: 1em;
+  position: relative;
 }
-/* line 55, ../sass/_scoreboard.scss */
-.mp-scores span {
+/* line 64, ../sass/_scoreboard.scss */
+.mp-scores .p-code {
   color: #999999;
   padding: .5em;
   display: block;
   margin-top: 2em;
 }
-/* line 62, ../sass/_scoreboard.scss */
+/* line 71, ../sass/_scoreboard.scss */
 .mp-scores input {
   -webkit-border-radius: 0.3em;
   -moz-border-radius: 0.3em;
@@ -753,39 +766,99 @@ em {
   border: 0;
   background-color: #e6e6e6;
 }
+/* line 83, ../sass/_scoreboard.scss */
+.mp-scores .mp-name,
+.mp-scores .mp-score {
+  position: absolute;
+  font-size: 1.3em;
+  top: 1.6em;
+  left: 7.5em;
+  width: 10em;
+}
+/* line 91, ../sass/_scoreboard.scss */
+.mp-scores .mp-score {
+  top: 2.8em;
+}
 
-/* line 74, ../sass/_scoreboard.scss */
+/* line 96, ../sass/_scoreboard.scss */
+.dave .mp-img {
+  background-image: url(../img/dave.jpg) !important;
+}
+
+/* line 100, ../sass/_scoreboard.scss */
 .ed .mp-img {
-  background-image: url(../img/ed.jpg);
+  background-image: url(../img/ed.jpg) !important;
 }
 
-/* line 78, ../sass/_scoreboard.scss */
+/* line 104, ../sass/_scoreboard.scss */
 .nick .mp-img {
-  background-image: url(../img/nick.jpg);
+  background-image: url(../img/nick.jpg) !important;
 }
 
-/* line 30, ../sass/styles.scss */
+/* line 4, ../sass/_start.scss */
+.start {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 998;
+  padding: 9em;
+  text-align: center;
+}
+
+/* line 16, ../sass/_start.scss */
+.start-btn {
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -ms-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  border-radius: 0.3em;
+  margin: 0 auto;
+  border: 0;
+  background-color: #00e600;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: .25em .5em .2em;
+}
+/* line 28, ../sass/_start.scss */
+.start-btn:hover {
+  background-color: #00b300;
+}
+
+/* line 31, ../sass/styles.scss */
 .text-list {
   list-style: disc;
   padding-left: 1.5em;
 }
 
-/* line 35, ../sass/styles.scss */
+/* line 36, ../sass/styles.scss */
 .clear-fix:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 45, ../sass/styles.scss */
+/* line 46, ../sass/styles.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 49, ../sass/styles.scss */
+/* line 50, ../sass/styles.scss */
 body {
   background-color: white;
   color: #595959;
+}
+
+/* line 60, ../sass/styles.scss */
+.timer {
+  text-align: center;
+  font-size: 4em;
+  color: #3377ff;
+  font-weight: bold;
 }
