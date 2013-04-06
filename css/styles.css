@@ -854,3 +854,11 @@ body {
   background-color: white;
   color: #595959;
 }
+
+/* line 60, ../sass/styles.scss */
+.timer {
+  text-align: center;
+  font-size: 4em;
+  color: #3377ff;
+  font-weight: bold;
+}
