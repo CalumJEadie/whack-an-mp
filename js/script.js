@@ -5,8 +5,8 @@
 theyworkforyou_key = "EJGTp6C6GFRyDJRPJJBmaJRD"
 theyworkforyou_api_root = "http://www.theyworkforyou.com/api/"
 theyworkforyou_image_root = "http://www.theyworkforyou.com"
-tick_interval = 500
-time_shown_no_attendance = 2000
+tick_interval = 1000
+time_shown_no_attendance = 4000
 
 /*
  * State.
@@ -177,7 +177,7 @@ function init_mp_containers() {
 
         click_callback = function(mp_id) {
             return function(eventObject) {
-                hide_mp(mp_id)
+                whack_mp(mp_id)
             }
         }
 
@@ -218,23 +218,45 @@ function show_random_mp() {
 
 function show_mp(mp_id) {
     mp_el = $($(".mp").eq(mp_id))
-    mp_attendance = mp_el.data("attendance")
-    mp_el
-        .addClass("pop")
-        .delay(3000)
-        .removeClass("pop").addClass("show")
 
-    setTimeout(
-        function() {
-            hide_mp(mp_id)
-        },
-        time_shown_no_attendance * (1-mp_attendance)
-    )
+    if (mp_el.data("shown") == false ) {
+        mp_el.data("shown", true)
+
+        mp_attendance = mp_el.data("attendance")
+        mp_el.addClass("show")
+
+        setTimeout(
+            function() {
+                hide_mp(mp_id)
+            },
+            time_shown_no_attendance * (1-mp_attendance)
+        )
+
+    }
 }
 
 function hide_mp(mp_id) {
     mp_el = $($(".mp").eq(mp_id))
-    mp_el.removeClass("show").addClass("pop").delay(3000).removeClass("show")
+
+    console.log(mp_el.data("shown"))
+    console.log(mp_el.data("shown") == true)
+    if (mp_el.data("shown") == true) {
+        mp_el.data("shown", false)
+        mp_el.removeClass("show")
+    }
+}
+
+function whack_mp(mp_id) {
+    mp_el = $($(".mp").eq(mp_id))
+
+    if (mp_el.data("shown") == true) {
+        mp_el.data("shown", false)
+        mp_el.removeClass("show")
+        mp_el.addClass("pop")//.delay(2000).removeClass("pop")
+        setTimeout(function(){
+            mp_el.removeClass("pop")
+        }, 500)
+    }
 }
 
 function start_game() {
@@ -245,16 +267,16 @@ function start_game() {
         mp_el = $(element)
 
         mp_el.data("whack_count", 0)
-        // console.log(mp_el.data("whack_count"))
+        mp_el.data("shown", false)
 
         mp_el.removeClass("show")
         mp_el.removeClass("pop")
-
-        // mp_el.addClass("show")
-        // mp_el.addClass("pop")
     })
 
-    whackanmp.tick_id = setInterval(show_random_mp, tick_interval)
+    setTimeout(function() {
+        whackanmp.tick_id = setInterval(show_random_mp, tick_interval),
+        5000
+    })
 }
 
 $(document).ready(function(){
