@@ -1,0 +1,31 @@
+//===============================================================================
+// §START
+//===============================================================================
+.start{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 998;
+  padding: 9em;
+  text-align: center;
+}
+
+.start-btn{
+  @include border-radius(.3em);
+
+  margin: 0 auto;
+  border: 0;
+  background-color: hsl(120, 100, 45);
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: .25em .5em .2em;
+
+  &:hover{
+    background-color: hsl(120, 100, 35);
+  }
+}
