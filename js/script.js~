@@ -1,11 +1,3 @@
-// Start button javascript
-
-$(document).ready(function() {
-	$('start-btn').click(function() {
-		$('.start').remove()
-	});
-});
-
 /*
  * Configuration.
  */
