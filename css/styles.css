@@ -527,18 +527,24 @@ hr {
 /* line 13, ../sass/_header.scss */
 .branding {
   float: left;
-  width: 30%;
+  width: 35%;
 }
 /* line 17, ../sass/_header.scss */
 .branding h1 {
   font-weight: normal;
-  margin: .6em .5em;
+  margin: .9em .5em 0;
+  float: left;
+}
+/* line 23, ../sass/_header.scss */
+.branding img {
+  float: left;
+  margin: 0.4em 0 0 -0.5em;
 }
 
-/* line 23, ../sass/_header.scss */
+/* line 29, ../sass/_header.scss */
 .instructions {
   float: left;
-  width: 70%;
+  width: 65%;
   padding: .5em;
   text-align: right;
 }
@@ -633,22 +639,22 @@ hr {
 
 /* line 70, ../sass/_grid.scss */
 .party-lab {
-  background-color: red;
+  background-color: #DC241f;
 }
 
 /* line 74, ../sass/_grid.scss */
 .party-con {
-  background-color: blue;
+  background-color: #0087DC;
 }
 
 /* line 78, ../sass/_grid.scss */
 .party-lib {
-  background-color: yellow;
+  background-color: #FDBB30;
 }
 
 /* line 82, ../sass/_grid.scss */
 .party-other {
-  background-color: grey;
+  background-color: #999999;
 }
 
 /* line 30, ../sass/styles.scss */
