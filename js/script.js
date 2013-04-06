@@ -1,12 +1,3 @@
-// Start button javascript
-$(document).ready(function() {
-	$('.start-btn').click(function() {
-		$('.start').remove();
-
-        console.log("start click fired");
-	});
-});
-
 /*
  * Configuration.
  */
@@ -14,7 +5,8 @@ $(document).ready(function() {
 theyworkforyou_key = "EJGTp6C6GFRyDJRPJJBmaJRD"
 theyworkforyou_api_root = "http://www.theyworkforyou.com/api/"
 theyworkforyou_image_root = "http://www.theyworkforyou.com"
-mp_popup_interval = 2000
+tick_interval = 1000
+time_shown_no_attendance = 4000
 
 /*
  * State.
@@ -31,6 +23,13 @@ output = $("#output")
 function random_int(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// Thanks StackOverflow!
+// http://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array-in-javascript
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
 
 function get_party_css_style(party) {
     switch (party) {
@@ -65,17 +64,17 @@ function get_mp(person_id, success) {
     )
 }
 
-// function get_mp_info(person_id, success) {
-//     $.getJSON(
-//         theyworkforyou_api_root + "getMPInfo",
-//         {
-//             key: theyworkforyou_key,
-//             output: "js",
-//             id: person_id
-//         },
-//         success
-//     )
-// }
+function get_mp_info(person_id, success) {
+    $.getJSON(
+        theyworkforyou_api_root + "getMPInfo",
+        {
+            key: theyworkforyou_key,
+            output: "js",
+            id: person_id
+        },
+        success
+    )
+}
 
 // function get_n_mps(success) {
 //     $.getJSON(
@@ -100,6 +99,35 @@ function init_mp_containers() {
     */
 
     // Attach data to mp containers from TheyWorkForYou API
+
+    mp_info_callback = function(mp_id) {
+        return function(data, textStatus, jqXHR) {
+            mp = data
+
+            // Average out attendances
+            attendances = []
+            for (var member_id in mp.by_member_id) {
+                attendance = mp.by_member_id[member_id].public_whip_division_attendance
+                attendance = parseFloat(attendance.substring(0, attendance.length-1))
+                attendance /= 100
+                attendances.push(attendance)
+            }
+            // sum = 0
+            // n = attendances.length
+
+            // console.log(attendances)
+            // console.log(n)
+            // for (var i=0; i++; i<n) {
+            //     console.log(attendances)
+            //     sum = sum + attendances[i]
+            // }
+            // console.log(sum)
+            // attendance = sum / n
+            attendance = attendances[0]
+
+            mp_el = $($('.mp')[mp_id]).data("attendance", attendance)
+        }
+    }
 
     mp_callback = function(mp_id) {
         return function(data, textStatus, jqXHR) {
@@ -128,12 +156,15 @@ function init_mp_containers() {
    
     mps_callback = function(data, textStatus, jqXHR) {
         mps = data
+        // Randomise the list of mps
+        mps = shuffle(mps)
         // console.log(mps)
         for (var mp_id=0; mp_id<12; mp_id++) {
             mp = mps[mp_id]
             // console.log(mp)
             mp_person_id = mp.person_id
             get_mp(mp_person_id, mp_callback(mp_id))
+            get_mp_info(mp_person_id, mp_info_callback(mp_id))
         }
     }
 
@@ -146,7 +177,7 @@ function init_mp_containers() {
 
         click_callback = function(mp_id) {
             return function(eventObject) {
-                hide_mp(mp_id)
+                whack_mp(mp_id)
             }
         }
 
@@ -177,7 +208,9 @@ function init_mp_containers() {
     //     }
     // })
 
-
+function tick() {
+    show_random_mp()
+}
 
 function show_random_mp() {
     show_mp(random_int(0,11))
@@ -185,12 +218,62 @@ function show_random_mp() {
 
 function show_mp(mp_id) {
     mp_el = $($(".mp").eq(mp_id))
-    mp_el.addClass("pop").delay(3000).removeClass("pop").addClass("show")
+
+    if (mp_el.data("shown") == false ) {
+        mp_el.data("shown", true)
+
+        mp_attendance = mp_el.data("attendance")
+        mp_el.addClass("show")
+
+        setTimeout(
+            function() {
+                hide_mp(mp_id)
+            },
+            time_shown_no_attendance * (1-mp_attendance)
+        )
+
+    }
 }
 
 function hide_mp(mp_id) {
     mp_el = $($(".mp").eq(mp_id))
-    mp_el.removeClass("show").addClass("pop").delay(3000).removeClass("show")
+
+    console.log(mp_el.data("shown"))
+    console.log(mp_el.data("shown") == true)
+    if (mp_el.data("shown") == true) {
+        mp_el.data("shown", false)
+        mp_el.removeClass("show")
+    }
+}
+
+function whack_mp(mp_id) {
+    mp_el = $($(".mp").eq(mp_id))
+
+    if (mp_el.data("shown") == true) {
+        mp_el.data("shown", false)
+        mp_el.removeClass("show")
+        mp_el.addClass("pop")//.delay(2000).removeClass("pop")
+        setTimeout(function(){
+            mp_el.removeClass("pop")
+        }, 500)
+    }
+}
+
+
+function countdown() {
+    var m = $('.min');
+    var s = $('.sec');
+    if(m.length == 0 && parseInt(s.html()) <= 0) {
+        window.location.href = "scoreboard.html";    
+    }
+    if(parseInt(s.html()) <= 0) {
+        m.html(parseInt(m.html()-1));   
+        s.html(60);
+    }
+    if(parseInt(m.html()) <= 0) {
+        $('.timer').html('<span class="sec">59</span> seconds.'); 
+    }
+    s.html(parseInt(s.html()-1));
 }
 
 function start_game() {
@@ -201,16 +284,15 @@ function start_game() {
         mp_el = $(element)
 
         mp_el.data("whack_count", 0)
-        // console.log(mp_el.data("whack_count"))
-
-        mp_el.removeClass("show")
-        mp_el.removeClass("pop")
-
-        // mp_el.addClass("show")
-        // mp_el.addClass("pop")
+        mp_el.data("shown", false)
     })
 
-    whackanmp.show_random_mp_id = setInterval(show_random_mp, mp_popup_interval)
+    $('.start').remove();
+
+    // setTimeout(function() {
+        whackanmp.tick_id = setInterval(show_random_mp, tick_interval)
+        setInterval(countdown, 1000)
+    // },1000)
 }
 
 $(document).ready(function(){
@@ -218,36 +300,5 @@ $(document).ready(function(){
 
     init_mp_containers()
 
-    start_game()
+    $('.start-btn').click(start_game);
 })
-
-    // Populate mp containers with mp information.
-    // 
-    // Information for mp:
-    // - name
-    // - headshot
-    // - party
-    // - how many times they've been whacked.
-    
-    // get_mps(function(data, textStatus, jqXHR) {
-    //     mps = data
-    //     for (var i=0; i<12; i++) {
-    //         console.log(i)
-    //         mp = mps[i]
-    //         mp_person_id = mp.person_id
-
-    //         get_mp(mp_person_id, function(data, textStatus, jqXHR) {
-    //             mp = data[0]
-
-    //             console.log(mp.full_name)
-    //             console.log(mp.image)
-    //             console.log(mp.party)
-
-    //             console.log(i)
-
-    //             mp_container = whackanmp.mp_containers.get(i)
-
-    //             console.log(mp_container)
-    //         })
-    //     }
-    // })

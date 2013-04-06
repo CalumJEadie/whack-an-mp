@@ -1,3 +1,30 @@
+// Start button javascript
+$(document).ready(function() {
+	$('.start-btn').click(function() {
+		$('.start').remove();
+
+        console.log("start click fired");
+	});
+});
+
+// timer js
+function countdown() {
+    var m = $('.min');
+    var s = $('.sec');
+    if(m.length == 0 && parseInt(s.html()) <= 0) {
+        $('.timer').html('Timer Complete.');    
+    }
+    if(parseInt(s.html()) <= 0) {
+        m.html(parseInt(m.html()-1));   
+        s.html(60);
+    }
+    if(parseInt(m.html()) <= 0) {
+        $('.timer').html('<span class="sec">59</span> seconds.'); 
+    }
+    s.html(parseInt(s.html()-1));
+}
+setInterval('countdown()',1000);
+
 /*
  * Configuration.
  */

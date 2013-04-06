@@ -572,8 +572,9 @@ em {
   height: 10em;
 }
 
-/* line 21, ../sass/_grid.scss */
-.mp {
+/* line 22, ../sass/_grid.scss */
+.mp,
+.mp-s {
   -webkit-border-radius: 10em;
   -moz-border-radius: 10em;
   -ms-border-radius: 10em;
@@ -595,7 +596,7 @@ em {
   padding: .2em;
 }
 
-/* line 34, ../sass/_grid.scss */
+/* line 35, ../sass/_grid.scss */
 .mp-img {
   -webkit-border-radius: 10em;
   -moz-border-radius: 10em;
@@ -618,18 +619,18 @@ em {
   background-position: center;
 }
 
-/* line 47, ../sass/_grid.scss */
+/* line 48, ../sass/_grid.scss */
 .show {
   height: 8em;
   width: 8em;
   margin: 1em auto;
 }
-/* line 52, ../sass/_grid.scss */
+/* line 53, ../sass/_grid.scss */
 .show .mp-img {
   opacity: 1;
 }
 
-/* line 57, ../sass/_grid.scss */
+/* line 58, ../sass/_grid.scss */
 .pop {
   -webkit-transition-duration: 0;
   -moz-transition-duration: 0;
@@ -641,27 +642,27 @@ em {
   width: 60px;
   margin: 2.5em auto;
 }
-/* line 66, ../sass/_grid.scss */
+/* line 67, ../sass/_grid.scss */
 .pop .mp-img {
   opacity: 0;
 }
 
-/* line 71, ../sass/_grid.scss */
+/* line 72, ../sass/_grid.scss */
 .party-lab {
   background-color: #DC241f;
 }
 
-/* line 75, ../sass/_grid.scss */
+/* line 76, ../sass/_grid.scss */
 .party-con {
   background-color: #0087DC;
 }
 
-/* line 79, ../sass/_grid.scss */
+/* line 80, ../sass/_grid.scss */
 .party-lib {
   background-color: #FDBB30;
 }
 
-/* line 83, ../sass/_grid.scss */
+/* line 84, ../sass/_grid.scss */
 .party-other {
   background-color: #999999;
 }
@@ -741,7 +742,7 @@ em {
 }
 
 /* line 59, ../sass/_scoreboard.scss */
-.mp-scores .mp {
+.mp-scores .mp-s {
   margin: 1em;
   position: relative;
 }
@@ -853,4 +854,12 @@ em {
 body {
   background-color: white;
   color: #595959;
+}
+
+/* line 60, ../sass/styles.scss */
+.timer {
+  text-align: center;
+  font-size: 4em;
+  color: #3377ff;
+  font-weight: bold;
 }
