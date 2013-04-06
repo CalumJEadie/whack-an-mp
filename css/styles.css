@@ -383,6 +383,15 @@ table {
   border-spacing: 0;
 }
 
+/* line 4, ../sass/_layout.scss */
+.wrap {
+  font-size: 1.1em;
+  padding-top: 6em;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 44em;
+}
+
 /* line 4, ../sass/_typography.scss */
 body {
   font-size: .9em;
@@ -436,12 +445,12 @@ ul {
 
 /* line 48, ../sass/_typography.scss */
 a {
-  color: #0044cc;
+  color: #0055ff;
   font-weight: bolder;
 }
 /* line 52, ../sass/_typography.scss */
 a:hover {
-  color: #003399;
+  color: #0044cc;
 }
 
 /* line 57, ../sass/_typography.scss */
