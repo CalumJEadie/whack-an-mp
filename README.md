@@ -8,7 +8,7 @@ Team
 ----
 
 -   Mark [@M6\_D6](https://twitter.com/M6_D6)
--   Callum [calumjeadie.com](http://www.calumjeadie.com/)
+-   Calum [calumjeadie.com](http://www.calumjeadie.com/)
 -   Andy [@ubc\_founder](https://twitter.com/ubc_founder)
 
 Rules
