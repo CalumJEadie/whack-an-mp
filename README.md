@@ -1,3 +1,3 @@
-# TheyWorkForYou API Experiments
+# Whack an MP
 
-Experiments with the TheyWorkForYou API for Rewired State National Hack the Government 2013.
+Hack using the TheyWorkForYou API for Rewired State National Hack the Government 2013.
