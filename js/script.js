@@ -131,6 +131,18 @@ function init_mp_containers() {
     get_mps(mps_callback)
 
     // Add event handlers to the containers.
+    $(".mp").each(function(index, element) {
+        mp_id = index
+        mp_el = $(element)
+
+        click_callback = function(mp_id) {
+            return function(eventObject) {
+                hide_mp(mp_id)
+            }
+        }
+
+        mp_el.click(click_callback(mp_id))
+    })
 }
 
     // get_mps(function(data, textStatus, jqXHR) {
